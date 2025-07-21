@@ -76,11 +76,30 @@ const Courtpage = () => {
   const { user } = use (Authcontext); // assumes user object or null
   const navigate = useNavigate();
   const [selectedCourt, setSelectedCourt] = useState(null); // for modal
+  const [itemperpage,setitemperpage]=useState(6);
+  const [currentpage,setcurrentpage]=useState(0);
+
+   const { data: courtscount = []} = useQuery({
+    queryKey: ['courtsnumber'],
+    queryFn: async () => {
+      const res = await axiosSecure.get('/courtscount');
+      return res.data;
+    },
+  });
+  console.log(courtscount)
+  // const {count}=courtscount;
+  const count = courtscount?.count || 0;
+  console.log(count)
+  // const itemperpage=6;
+  const numberofpage= Math.ceil(count/itemperpage);
+  console.log(numberofpage)
+  const pages= [...Array(numberofpage).keys()]
+  // console.log(pages)
 
   const { data: allcourts = [], isLoading, isError, error } = useQuery({
-    queryKey: ['courts'],
+    queryKey: ['courts',currentpage, itemperpage],
     queryFn: async () => {
-      const res = await axiosSecure.get('/courts');
+      const res = await axiosSecure.get(`/courts?page=${currentpage}&size=${itemperpage}`);
       return res.data;
     },
   });
@@ -96,8 +115,30 @@ const Courtpage = () => {
     }
   };
 
+  const handleitemperpage = (e) =>{
+    console.log(e.target.value);
+    const val=parseInt(e.target.value);
+    setitemperpage(val);
+    setcurrentpage(0);
+
+  }
+
+  const handleprev = ()=>{
+    if(currentpage >0){
+      setcurrentpage(currentpage-1)
+    }
+  }
+
+   const handlenext = ()=>{
+    if(currentpage < pages.length-1){
+      setcurrentpage(currentpage+1)
+    }
+  }
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+    <div className='pb-4'>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
       {allcourts.map((court) => (
         <div key={court._id} className="border rounded-2xl shadow-lg p-4 bg-white">
           <img src={court.courtImage} alt={court.courtType} className="w-full h-48 object-cover rounded-xl" />
@@ -125,6 +166,8 @@ const Courtpage = () => {
         </div>
       ))}
 
+      
+
       {selectedCourt && (
         <BookingModal
           court={selectedCourt}
@@ -133,6 +176,26 @@ const Courtpage = () => {
         />
       )}
     </div>
+    <div className='flex justify-center gap-3'>
+      <button onClick={handleprev} className='px-3 py-2 bg-green-700 rounded text-white'>Prev</button>
+
+       {
+        pages.map(page=><button onClick={()=>setcurrentpage(page)} key={page}  className={`px-3 py-2 rounded bg-gray-600 text-white  ${currentpage === page ? 'bg-orange-500' : 'bg-gray-600'}`}>{page}</button>)
+      }
+      <select value={itemperpage} onChange={handleitemperpage} name='' id=''>
+        <option value="6">6</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+      </select>
+
+       <button onClick={handlenext} className='px-3 py-2 bg-green-700 rounded text-white'>Next</button>
+
+    </div>
+
+   
+
+    </div>
+    
   );
 };
 
