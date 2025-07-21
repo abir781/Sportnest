@@ -25,6 +25,19 @@ import Paymenthistory from './pages/Paymenthistory.jsx';
 
 import Confirmedbooking from './pages/Confirmedbooking.jsx';
 import Allusers from './pages/Allusers.jsx';
+import Managemember from './pages/ManageMembers.jsx';
+import ManageBookings from './pages/ManageBookings.jsx';
+import ManageCoupon from './pages/ManageCoupon.jsx';
+import ManageCourts from './pages/ManageCourts.jsx';
+import MakeAnnouncement from './pages/MakeAnnouncement.jsx';
+import Managebookingapproval from './pages/Managebookingapproval.jsx';
+import Forbidden from './pages/Forbidden.jsx';
+import Adminroute from './Route/Adminroute.jsx';
+import ManageMembers from './pages/ManageMembers.jsx';
+import UserandMemberroute from './Route/UserandMemberroute.jsx';
+import Memberroute from './Route/Memberroute.jsx';
+import PaymentHistory from './pages/Paymenthistory.jsx';
+
 
 const queryClient = new QueryClient();
 
@@ -44,6 +57,11 @@ const router = createBrowserRouter([
       {
         path:'/register',
         Component:Register,
+
+      },
+        {
+        path:'/forbidden',
+        Component:Forbidden,
 
       },
       {
@@ -70,29 +88,80 @@ const router = createBrowserRouter([
       },
       {
         path:'/dashboard/pending-bookings',
-        Component:Pendingbookings,
+        element:<UserandMemberroute>
+          <Pendingbookings></Pendingbookings>
+        </UserandMemberroute>
       },
       {
         path:'/dashboard/announcements',
-        Component:Announcement,
+        element:<UserandMemberroute>
+          <Announcement></Announcement>
+        </UserandMemberroute>
 
       },
       {
         path:'/dashboard/approvedbookings',
-        Component: Approvedbookings,
+        element:<Memberroute>
+          <Approvedbookings></Approvedbookings>
+        </Memberroute>
       },
       {
          path:'/dashboard/paymenthistory',
-        Component: Paymenthistory,
+         element:<Memberroute>
+          <PaymentHistory></PaymentHistory>
+         </Memberroute>
 
       },
       {
          path:'/dashboard/confirmedbooking',
-        Component: Confirmedbooking,
+         element:<Memberroute>
+          <Confirmedbooking></Confirmedbooking>
+         </Memberroute>
       },
         {
          path:'/dashboard/allusers',
-        Component: Allusers,
+         element:<Adminroute>
+          <Allusers></Allusers>
+         </Adminroute>,
+        
+      },
+        {
+         path:'/dashboard/managemember',
+         element:<Adminroute>
+          <ManageMembers></ManageMembers>
+         </Adminroute>
+        
+      },
+         {
+         path:'/dashboard/managebookings',
+        
+        element:<Adminroute>
+          <ManageBookings></ManageBookings>
+        </Adminroute>
+      },
+         {
+         path:'/dashboard/managecoupon',
+         element:<Adminroute>
+          <ManageCoupon></ManageCoupon>
+         </Adminroute>,
+        
+      },
+          {
+         path:'/dashboard/managecourts',
+         element:<Adminroute>
+          <ManageCourts></ManageCourts>
+         </Adminroute>,
+      },
+         {
+         path:'/dashboard/makeannouncement',
+         element:<Adminroute>
+          <MakeAnnouncement></MakeAnnouncement>
+         </Adminroute>,
+      },
+          {
+         path:'/dashboard/managebookingapproval',
+         element:<Adminroute><Managebookingapproval></Managebookingapproval></Adminroute>,
+        
       },
       {
          

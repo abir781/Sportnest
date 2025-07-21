@@ -1,32 +1,48 @@
-import React, { use, useContext } from 'react';
-// import { AuthContext } from '../providers/AuthProvider'; // adjust path as needed
+import React, { use } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 import { Authcontext } from '../Context/Authcontext';
+import AdminProfile from '../Components/AdminProfile';
+import MemberProfile from '../Components/MemberProfile';
+import UserProfile from '../Components/UserProfile';
 
-const Profile = () => {
-  const { user } = use (Authcontext);
+const ProfileInfo = () => {
+  const { user } = use(Authcontext);
+  const axiosSecure = useAxiosSecure();
 
-//   if (!user) {
-//     return <p className="text-center mt-10">You must be logged in to view your profile.</p>;
-//   }
+  // const { data: userInfo = {}, isLoading, isError } = useQuery({
+  //   queryKey: ['userInfo', user?.email],
+  //   enabled: !!user?.email,
+  //   queryFn: async () => {
+  //     const res = await axiosSecure.get(`/users/${user.email}`);
+  //     return res.data;
+  //   },
+  // });
+  const { data: currentUser = {}, isLoading } = useQuery({
+  queryKey: ['currentUser', user?.email],
+  queryFn: async () => {
+    const res = await axiosSecure.get(`/users/${user.email}`);
+    return res.data;
+  },
+  enabled: !!user?.email
+});
 
-  const { displayName, email, photoURL, metadata } = user;
-  const registrationDate = new Date(user.metadata?.creationTime).toLocaleDateString();
+  if (isLoading) return <p className="text-center">Loading profile...</p>;
+  // if (isError) return <p className="text-center text-red-500">Failed to load user info</p>;
 
   return (
-    <div className="max-w-md mx-auto bg-white shadow-md rounded-lg p-6 mt-10">
-      <div className="flex flex-col items-center text-center">
-        <img
-          src={photoURL}
-          alt="User Avatar"
-          className="w-24 h-24 rounded-full object-cover mb-4"
-        />
-        <h2 className="text-xl font-semibold">{displayName}</h2>
-        <p className="text-gray-600">{email}</p>
-        <p className="text-sm text-gray-500 mt-2">Registered on: {registrationDate}</p>
-      </div>
-    </div>
-  );
+  <div className="p-6">
+    {currentUser.role === 'admin' ? (
+      <AdminProfile currentUser={currentUser} />
+    ) : currentUser.role === 'member' ? (
+      <MemberProfile currentUser={currentUser} />
+    ) : (
+      <UserProfile currentUser={currentUser} />
+    )}
+  </div>
+);
 };
 
-export default Profile;
+export default ProfileInfo;
+
 

@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router';
 import { Authcontext } from '../Context/Authcontext';
 import { toast } from 'react-toastify';
 import useAxios from '../hooks/useAxios';
+import Sociallogin from '../Components/Sociallogin';
 
 const Register = () => {
 
@@ -93,6 +94,10 @@ const Register = () => {
           <p className='font-semibold text-center pt-5'>Already have an account ?
             <Link className='text-red-500' to="/login">Login</Link> </p>
         </fieldset>
+
+         <p className='text-center font-semibold'>Or</p>
+  {/* <div  className='border border-black py-2 font-semibold cursor-pointer flex items-center justify-center gap-2'><FcGoogle />Login With Google</div> */}
+  <Sociallogin></Sociallogin>
 
                  {/* <p className='text-center font-semibold'>Or</p> */}
   {/* <div  className='border border-black py-2 font-semibold cursor-pointer flex items-center justify-center gap-2'><FcGoogle />Login With Google</div> */}

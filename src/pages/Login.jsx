@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { Authcontext } from '../Context/Authcontext';
 import { toast } from 'react-toastify';
+import Sociallogin from '../Components/Sociallogin';
 
 
 // import { toast } from 'react-toastify';
@@ -95,7 +96,7 @@ const Login = () => {
 
                  <p className='text-center font-semibold'>Or</p>
   {/* <div  className='border border-black py-2 font-semibold cursor-pointer flex items-center justify-center gap-2'><FcGoogle />Login With Google</div> */}
-  {/* <Sociallogin></Sociallogin> */}
+  <Sociallogin></Sociallogin>
 
   
     

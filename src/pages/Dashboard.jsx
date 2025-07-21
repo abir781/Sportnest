@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 
 import { Menu, X } from 'lucide-react'; // icon package, optional
-import { FaHome, FaUser, FaClipboardList, FaBullhorn } from 'react-icons/fa';
+import { FaHome, FaUser, FaClipboardList, FaBullhorn, FaClipboardCheck, FaCheckCircle, FaCreditCard, FaUsers, FaUserShield, FaTableTennis, FaTicketAlt, FaThumbsUp, FaTasks } from 'react-icons/fa';
 import { NavLink, Outlet } from 'react-router';
+import useUserRole from '../hooks/useUserRole';
 
 const Dashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const {role}= useUserRole();
+  console.log(role);
 
 //   const menuItems = [
 //     { name: 'Home', to: '/', icon: <FaHome /> },
@@ -28,6 +31,7 @@ const Dashboard = () => {
             <NavLink
              
               to='/dashboard'
+              end
               className={({ isActive }) =>
                 `flex items-center gap-2 px-4 py-2 rounded-lg ${
                   isActive ? 'bg-white text-blue-900 font-semibold' : 'hover:bg-blue-800'
@@ -37,8 +41,9 @@ const Dashboard = () => {
             >
               <FaUser /> Profile
             </NavLink>
-
-             <NavLink
+            {
+              role==='user' && <>
+                  <NavLink
              
               to='/dashboard/pending-bookings'
               className={({ isActive }) =>
@@ -63,6 +68,169 @@ const Dashboard = () => {
             >
               <FaBullhorn /> Announcement
             </NavLink>
+
+
+              </>
+            }
+            {
+              role==='member' && <>
+                  <NavLink
+             
+              to='/dashboard/pending-bookings'
+              className={({ isActive }) =>
+                `flex items-center gap-2 px-4 py-2 rounded-lg ${
+                  isActive ? 'bg-white text-blue-900 font-semibold' : 'hover:bg-blue-800'
+                }`
+              }
+              onClick={() => setIsOpen(false)} // close on small screen click
+            >
+              <FaClipboardList /> Pending Booking
+            </NavLink>
+
+             <NavLink
+             
+              to='/dashboard/announcements'
+              className={({ isActive }) =>
+                `flex items-center gap-2 px-4 py-2 rounded-lg ${
+                  isActive ? 'bg-white text-blue-900 font-semibold' : 'hover:bg-blue-800'
+                }`
+              }
+              onClick={() => setIsOpen(false)} // close on small screen click
+            >
+              <FaBullhorn /> Announcement
+            </NavLink>
+
+            <NavLink
+  to="/dashboard/approvedbookings"
+  className={({ isActive }) =>
+    `flex items-center gap-2 px-4 py-2 rounded-lg ${
+      isActive ? 'bg-white text-blue-900 font-semibold' : 'hover:bg-blue-800'
+    }`
+  }
+  onClick={() => setIsOpen(false)}
+>
+ <FaThumbsUp />Approved Bookings 
+</NavLink>
+
+<NavLink
+  to="/dashboard/confirmedbooking"
+  className={({ isActive }) =>
+    `flex items-center gap-2 px-4 py-2 rounded-lg ${
+      isActive ? 'bg-white text-blue-900 font-semibold' : 'hover:bg-blue-800'
+    }`
+  }
+  onClick={() => setIsOpen(false)}
+>
+  <FaCheckCircle /> Confirmed Bookings
+</NavLink>
+
+<NavLink
+  to="/dashboard/paymenthistory"
+  className={({ isActive }) =>
+    `flex items-center gap-2 px-4 py-2 rounded-lg ${
+      isActive ? 'bg-white text-blue-900 font-semibold' : 'hover:bg-blue-800'
+    }`
+  }
+  onClick={() => setIsOpen(false)}
+>
+  <FaCreditCard /> Payment History
+</NavLink>
+
+
+
+              </>
+            }
+
+            
+
+{
+  role==='admin' && <>
+     <NavLink
+  to="/dashboard/managebookingapproval"
+  className={({ isActive }) =>
+    `flex items-center gap-2 px-4 py-2 rounded-lg ${
+      isActive ? 'bg-white text-blue-900 font-semibold' : 'hover:bg-blue-800'
+    }`
+  }
+  onClick={() => setIsOpen(false)}
+>
+  <FaClipboardCheck /> Manage Bookings Approval
+</NavLink>
+
+<NavLink
+  to="/dashboard/managebookings"
+  className={({ isActive }) =>
+    `flex items-center gap-2 px-4 py-2 rounded-lg ${
+      isActive ? 'bg-white text-blue-900 font-semibold' : 'hover:bg-blue-800'
+    }`
+  }
+  onClick={() => setIsOpen(false)}
+>
+  <FaTasks></FaTasks> Manage Bookings 
+</NavLink>
+
+<NavLink
+  to="/dashboard/managemember"
+  className={({ isActive }) =>
+    `flex items-center gap-2 px-4 py-2 rounded-lg ${
+      isActive ? 'bg-white text-blue-900 font-semibold' : 'hover:bg-blue-800'
+    }`
+  }
+  onClick={() => setIsOpen(false)}
+>
+  <FaUsers /> Manage Members
+</NavLink>
+
+<NavLink
+  to="/dashboard/allusers"
+  className={({ isActive }) =>
+    `flex items-center gap-2 px-4 py-2 rounded-lg ${
+      isActive ? 'bg-white text-blue-900 font-semibold' : 'hover:bg-blue-800'
+    }`
+  }
+  onClick={() => setIsOpen(false)}
+>
+  <FaUserShield /> All Users
+</NavLink>
+
+<NavLink
+  to="/dashboard/managecourts"
+  className={({ isActive }) =>
+    `flex items-center gap-2 px-4 py-2 rounded-lg ${
+      isActive ? 'bg-white text-blue-900 font-semibold' : 'hover:bg-blue-800'
+    }`
+  }
+  onClick={() => setIsOpen(false)}
+>
+  <FaTableTennis /> Manage Courts
+</NavLink>
+
+<NavLink
+  to="/dashboard/managecoupon"
+  className={({ isActive }) =>
+    `flex items-center gap-2 px-4 py-2 rounded-lg ${
+      isActive ? 'bg-white text-blue-900 font-semibold' : 'hover:bg-blue-800'
+    }`
+  }
+  onClick={() => setIsOpen(false)}
+>
+  <FaTicketAlt /> Manage Coupons
+</NavLink>
+
+<NavLink
+  to="/dashboard/makeannouncement"
+  className={({ isActive }) =>
+    `flex items-center gap-2 px-4 py-2 rounded-lg ${
+      isActive ? 'bg-white text-blue-900 font-semibold' : 'hover:bg-blue-800'
+    }`
+  }
+  onClick={() => setIsOpen(false)}
+>
+  <FaBullhorn /> Make Announcement
+</NavLink>
+
+  </>
+}
         
         </nav>
       </div>

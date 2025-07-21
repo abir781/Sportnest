@@ -105,18 +105,37 @@ const Paymentform = () => {
   }, [approved]);
 
   // ✅ Apply Coupon Logic
-  const handleApplyCoupon = () => {
-    if (coupon === 'SAVE20') {
-      const discountAmount = approved.totalPrice * 0.2;
-      setDiscount(discountAmount);
-      setFinalPrice(approved.totalPrice - discountAmount);
-      Swal.fire('Success!', 'Coupon applied successfully!', 'success');
-    } else {
-      setDiscount(0);
-      setFinalPrice(approved.totalPrice);
-      Swal.fire('Invalid Coupon', 'This coupon is not valid', 'error');
-    }
-  };
+  // const handleApplyCoupon = () => {
+  //   if (coupon === 'SAVE20') {
+  //     const discountAmount = approved.totalPrice * 0.2;
+  //     setDiscount(discountAmount);
+  //     setFinalPrice(approved.totalPrice - discountAmount);
+  //     Swal.fire('Success!', 'Coupon applied successfully!', 'success');
+  //   } else {
+  //     setDiscount(0);
+  //     setFinalPrice(approved.totalPrice);
+  //     Swal.fire('Invalid Coupon', 'This coupon is not valid', 'error');
+  //   }
+  // };
+
+  const handleApplyCoupon = async () => {
+  if (!coupon) return Swal.fire('Warning', 'Please enter a coupon code.', 'warning');
+
+  try {
+    const res = await axiosSecure.get(`/coupons/${coupon}`);
+    const foundCoupon = res.data;
+
+    const discountAmount = approved.totalPrice * (foundCoupon.discount / 100);
+    setDiscount(discountAmount);
+    setFinalPrice(approved.totalPrice - discountAmount);
+
+    Swal.fire('Success!', `Coupon applied (${foundCoupon.discount}% off)`, 'success');
+  } catch (err) {
+    setDiscount(0);
+    setFinalPrice(approved.totalPrice);
+    Swal.fire('Invalid Coupon', 'This coupon is not valid or expired.', 'error');
+  }
+};
 
   const amountincents=finalPrice*100;
   console.log(amountincents);
