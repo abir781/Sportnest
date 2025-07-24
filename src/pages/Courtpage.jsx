@@ -86,13 +86,13 @@ const Courtpage = () => {
       return res.data;
     },
   });
-  console.log(courtscount)
+  // console.log(courtscount)
   // const {count}=courtscount;
   const count = courtscount?.count || 0;
-  console.log(count)
+  // console.log(count)
   // const itemperpage=6;
   const numberofpage= Math.ceil(count/itemperpage);
-  console.log(numberofpage)
+  // console.log(numberofpage)
   const pages= [...Array(numberofpage).keys()]
   // console.log(pages)
 

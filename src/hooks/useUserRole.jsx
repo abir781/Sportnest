@@ -5,19 +5,19 @@ import { Authcontext } from '../Context/Authcontext';
 
 
 const useUserRole = () => {
-  const { user } = use(Authcontext);
+  const { user, loading: authLoading } = use(Authcontext);
   const axiosSecure = useAxiosSecure();
 
-  const { data: role = 'user', isLoading, isError } = useQuery({
+  const { data: role = 'user', isLoading:roleLoading, isError,refetch, } = useQuery({
     queryKey: ['userRole', user?.email],
-    enabled: !!user?.email, // only run if email exists
+    enabled: !authLoading && !!user?.email, // only run if email exists
     queryFn: async () => {
       const res = await axiosSecure.get(`/users/role/${user.email}`);
       return res.data.role;
     },
   });
 
-  return { role, isLoading, isError };
+  return { role, roleLoading:authLoading || roleLoading, isError,refetch };
 };
 
 export default useUserRole;

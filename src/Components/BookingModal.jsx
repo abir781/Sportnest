@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import useAxiosSecure from '../hooks/useAxiosSecure';
+import { toast } from 'react-toastify';
 
 const BookingModal = ({ court, user, onClose }) => {
   const { register, handleSubmit, watch } = useForm();
@@ -27,12 +28,14 @@ const BookingModal = ({ court, user, onClose }) => {
 
     try {
       const res = await axiosSecure.post('/bookings', bookingInfo);
-      console.log('Booking response:', res.data);
-      alert('Booking request sent!');
+      // console.log('Booking response:', res.data);
+      // alert('Booking request sent!');
+      toast.success("Booking request sent!");
       onClose(); // close modal
     } catch (error) {
-      console.error('Booking error:', error);
-      alert('Something went wrong');
+      // console.error('Booking error:', error);
+      // alert('Something went wrong');
+      toast.warning("Something went wrong");
     }
   };
 

@@ -5,8 +5,8 @@ import { Navigate } from 'react-router';
 
 const Adminroute = ({children}) => {
     const {user,loading}=use(Authcontext);
-    const {role}=useUserRole();
-        if(loading){
+    const {role,roleLoading}=useUserRole();
+        if(loading || roleLoading){
             return <span className="loading loading-spinner loading-xl"></span>
         }
         if(!user || role !== 'admin'){

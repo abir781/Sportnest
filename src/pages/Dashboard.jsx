@@ -7,21 +7,16 @@ import useUserRole from '../hooks/useUserRole';
 
 const Dashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const {role}= useUserRole();
-  console.log(role);
+  const {role,roleLoading}= useUserRole();
+  // console.log(role);
 
-//   const menuItems = [
-//     { name: 'Home', to: '/', icon: <FaHome /> },
-//     { name: 'Profile', to: '/dashboard/profile', icon: <FaUser /> },
-//     { name: 'Bookings', to: '/dashboard/bookings', icon: <FaClipboardList /> },
-//     // Add more routes here
-//   ];
+
 
   return (
     <div className="flex min-h-screen bg-blue-900">
       {/* Sidebar */}
       <div
-        className={`fixed lg:static z-50 top-0 left-0  text-white w-64 h-full p-5 transition-transform duration-300 ${
+        className={`fixed lg:static z-0 top-0 left-0  text-white w-64 h-full p-5 transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         }`}
       >
@@ -144,7 +139,7 @@ const Dashboard = () => {
             
 
 {
-  role==='admin' && <>
+ !roleLoading && role==='admin' && <>
      <NavLink
   to="/dashboard/managebookingapproval"
   className={({ isActive }) =>

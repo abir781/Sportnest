@@ -1,6 +1,6 @@
 import { Menu } from 'lucide-react';
 import React, {  use, useState } from 'react';
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 import { Authcontext } from '../Context/Authcontext';
 import { toast } from 'react-toastify';
 // import { Authcontext } from '../Context/Authcontext';
@@ -12,10 +12,13 @@ const Navbar = () => {
     const [open,setopen]=useState(false);
     const [unlock,setunlock]=useState(false);
     const {user,logout}=use(Authcontext);
+    const navigate=useNavigate();
     const handlelogout=()=>{
         
         logout().then(()=>{
             toast.success("User logged out successfully");
+            navigate("/");
+            
            
         })
         .catch((error)=>{

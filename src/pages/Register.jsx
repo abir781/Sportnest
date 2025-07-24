@@ -13,14 +13,14 @@ const Register = () => {
     const axiosInstance=useAxios();
     const {handleSubmit,register,formState: { errors }}=useForm();
     const onSubmit=data=>{
-        console.log(data)
+        // console.log(data)
         
-        console.log(createuser)
+        // console.log(createuser)
          createuser(data.email,data.password)
                  .then(async(result)=>{
                     const user=result.user;
                      toast.success("Register Successfull");
-                    console.log(user)
+                    // console.log(user)
                     const userInfo= {
                       name:data.name,
                       email:data.email,
@@ -29,13 +29,13 @@ const Register = () => {
                       created_at: new Date().toISOString(),
                     }
                     const userRes= await axiosInstance.post('/users',userInfo);
-                    console.log(userRes.data);
+                    // console.log(userRes.data);
                     updateuser({displayName:data.name,photoURL:data.photo}).then(()=>{
                       setuser({...user,displayName:data.name,photoURL:data.photo});
                       navigate("/");
                     })
                     .catch((error) => {
-                      console.log(error);
+                      // console.log(error);
                       setuser(user);
                     });
                     

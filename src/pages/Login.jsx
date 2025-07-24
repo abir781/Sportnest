@@ -26,11 +26,11 @@ const Login = () => {
 
 
      const onSubmit=data=>{
-        console.log(data)
+        // console.log(data)
 
             signin(data.email,data.password).then((result)=>{
          const user=result.user;
-         console.log(user);
+        //  console.log(user);
          toast.success('Login Successfull');
         
          navigate(`${location.state?location.state:"/"}`);
