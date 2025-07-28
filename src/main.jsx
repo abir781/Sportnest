@@ -37,6 +37,7 @@ import ManageMembers from './pages/ManageMembers.jsx';
 import UserandMemberroute from './Route/UserandMemberroute.jsx';
 import Memberroute from './Route/Memberroute.jsx';
 import PaymentHistory from './pages/Paymenthistory.jsx';
+import Errorpage from './pages/Errorpage.jsx';
 
 
 const queryClient = new QueryClient();
@@ -45,6 +46,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     Component:Root,
+    errorElement:<Errorpage></Errorpage>,
     children:[
       {
         index:true,

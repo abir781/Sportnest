@@ -48,7 +48,7 @@ const Navbar = () => {
 
                 <div className='flex gap-2 items-center'>
 
-                    <img className='w-14 h-14' src="/logo.png" alt="" />
+                    <img className='w-14 h-14 rounded-full' src="/logo.png" alt="" />
                     <h1 className='text-2xl font-bold text-white'>SportNest</h1>
 
                 </div>
