@@ -108,6 +108,8 @@ const Navbar = () => {
                    
                   
                 </div>
+
+                {/* <li className='px-3 py-2  hover:bg-blue-900 text-center'> <button onClick={handlelogout} className='cursor-pointer' >Logout</button></li> */}
         
                 
 
