@@ -27,7 +27,7 @@ const Navbar = () => {
     }
     return (
         <div className=' bg-[#7fccfa] sticky top-0  w-full z-50'>
-        <div className='flex items-center justify-between py-6  w-11/12 mx-auto'>
+        <div className='flex items-center justify-between py-3  w-10/12 mx-auto'>
             <div className='flex items-center gap-2'>
                 <Menu onClick={()=>setopen(!open)} className='md:hidden '></Menu>
                 <ul className={`md:hidden absolute duration-500 z-10 ${open?'top-14':'-top-40'} bg-black text-white`}>
@@ -82,7 +82,7 @@ const Navbar = () => {
                   
 
                    {
-                    user?<><img onClick={()=>setunlock(!unlock)} className='w-12  rounded-full' src={`${user ? user.photoURL:""}`} title={`${user?user.displayName:""}`} alt="" />
+                    user?<><img onClick={()=>setunlock(!unlock)} className='w-12 h-12  rounded-full' src={`${user ? user.photoURL:""}`} title={`${user?user.displayName:""}`} alt="" />
                     
                     <ul className={` absolute duration-500 z-10 ${unlock?'top-18':'-top-40'} bg-blue-500 text-white`}>
                         

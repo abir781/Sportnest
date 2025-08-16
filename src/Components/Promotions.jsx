@@ -14,7 +14,7 @@ const Promotions = () => {
   });
 
   return (
-    <div className="py-12 px-4 md:px-10 bg-gray-100">
+    <div className="py-12 px-4 md:px-0 bg-gray-100">
       <h2 className="text-3xl font-bold text-center mb-6">🎁 Exclusive Promotions</h2>
 
       {isLoading ? (

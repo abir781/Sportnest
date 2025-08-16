@@ -3,7 +3,7 @@ import React from "react";
 
 const Aboutus = () => {
   return (
-    <div className="bg-gray-100 py-16 px-6 lg:px-24">
+    <div className="bg-gray-100 py-16 px-6 lg:px-0">
       <div className="max-w-6xl mx-auto text-center mb-12">
         <h2 className="text-4xl font-bold text-gray-800 mb-4">About the Club</h2>
         <p className="text-gray-600 text-lg">
@@ -11,7 +11,7 @@ const Aboutus = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-10/12 mx-auto">
         {/* Card: History */}
         <div className="bg-blue-600 text-white rounded-xl shadow-lg p-6">
           <h3 className="text-2xl font-bold mb-4">🏛 History</h3>
