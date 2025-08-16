@@ -38,6 +38,7 @@ import UserandMemberroute from './Route/UserandMemberroute.jsx';
 import Memberroute from './Route/Memberroute.jsx';
 import PaymentHistory from './pages/Paymenthistory.jsx';
 import Errorpage from './pages/Errorpage.jsx';
+import OverviewPage from './pages/Overviewpage.jsx';
 
 
 const queryClient = new QueryClient();
@@ -87,6 +88,12 @@ const router = createBrowserRouter([
       {
         index:true,
         Component:Profile,
+      },
+       {
+        path:'/dashboard/overview',
+        element:<OverviewPage></OverviewPage>
+          
+        
       },
       {
         path:'/dashboard/pending-bookings',

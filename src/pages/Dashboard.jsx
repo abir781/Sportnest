@@ -36,6 +36,20 @@ const Dashboard = () => {
             >
               <FaUser /> Profile
             </NavLink>
+
+             <NavLink
+             
+              to='/dashboard/overview'
+              end
+              className={({ isActive }) =>
+                `flex items-center gap-2 px-4 py-2 rounded-lg ${
+                  isActive ? 'bg-white text-blue-900 font-semibold' : 'hover:bg-blue-800'
+                }`
+              }
+              onClick={() => setIsOpen(false)} // close on small screen click
+            >
+              <FaUser /> Overview
+            </NavLink>
             {
               role==='user' && <>
                   <NavLink
