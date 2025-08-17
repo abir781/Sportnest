@@ -17,6 +17,7 @@ const Forbidden = () => {
       >
         Go Back Home
       </Link>
+      
     </div>
   );
 };

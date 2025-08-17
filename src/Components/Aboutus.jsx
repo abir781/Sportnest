@@ -13,7 +13,7 @@ const Aboutus = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-10/12 mx-auto">
         {/* Card: History */}
-        <div className="bg-blue-600 text-white rounded-xl shadow-lg p-6">
+        <div className="bg-blue-600 text-white rounded-xl shadow-lg p-6 min-h-[250px] flex flex-col justify-center">
           <h3 className="text-2xl font-bold mb-4">🏛 History</h3>
           <p className="leading-relaxed">
             Founded in 2010, our club started with a mission to promote sports and fitness in the community.
@@ -22,7 +22,7 @@ const Aboutus = () => {
         </div>
 
         {/* Card: Mission */}
-        <div className="bg-cyan-600 text-white rounded-xl shadow-lg p-6">
+        <div className="bg-cyan-600 text-white rounded-xl shadow-lg p-6 min-h-[250px] flex flex-col justify-center">
           <h3 className="text-2xl font-bold mb-4">🎯 Mission</h3>
           <p className="leading-relaxed">
             To build a vibrant environment where individuals of all ages can grow through physical activity,
@@ -31,7 +31,7 @@ const Aboutus = () => {
         </div>
 
         {/* Card: Vision */}
-        <div className="bg-green-700 text-white rounded-xl shadow-lg p-6">
+        <div className="bg-green-700 text-white rounded-xl shadow-lg p-6 min-h-[250px] flex flex-col justify-center">
           <h3 className="text-2xl font-bold mb-4">🌟 Vision</h3>
           <p className="leading-relaxed">
             We strive to become a regional leader in athletic excellence, known for inclusivity,
@@ -40,7 +40,7 @@ const Aboutus = () => {
         </div>
 
         {/* Card: Core Values */}
-        <div className="bg-purple-600 text-white rounded-xl shadow-lg p-6">
+        <div className="bg-purple-600 text-white rounded-xl shadow-lg p-6 min-h-[250px] flex flex-col justify-center">
           <h3 className="text-2xl font-bold mb-4">💡 Core Values</h3>
           <ul className="list-disc list-inside space-y-1">
             <li>Respect and integrity</li>

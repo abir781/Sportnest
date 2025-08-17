@@ -77,8 +77,10 @@ const Navbar = () => {
 
             </div>
             <div className='flex items-center gap-3'>
-                <div className='flex gap-3'>
+                <div className='flex gap-3 items-center'>
                     {/* <img className='w-12  rounded-full' src={`${user ? user.photoURL:""}`} title={`${user?user.displayName:""}`} alt="" /> */}
+
+                    <input type="checkbox" value="dark" className="toggle theme-controller" />
                   
 
                    {

@@ -10,7 +10,7 @@ const Privateroute = ({children}) => {
     const location=useLocation();
 
     if(!user){
-        return <Navigate to='/login' state={location.pathname}></Navigate>
+        return <Navigate to='/' state={location.pathname}></Navigate>
     }
     return children;
 };

@@ -6,7 +6,7 @@ const Location = () => {
   const position = [23.7925, 90.4078]; // Example: Dhaka coordinates
 
   return (
-    <div className="py-12 px-4 md:px-0 bg-gray-100">
+    <div className="py-12 px-4 md:px-0 bg-gray-100 dark:bg-gray-900 ">
       <h2 className="text-3xl font-bold text-center mb-6">📍 Our Location</h2>
 
       <div className="max-w-10/12 mx-auto grid md:grid-cols-2 gap-6">
