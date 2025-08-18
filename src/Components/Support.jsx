@@ -10,7 +10,7 @@ const Support = () => {
 
     <div className=" flex items-center justify-center ">
       
-      <div className="  shadow-lg rounded-2xl p-8 w-full max-w-10/12 mx-auto">
+      <div className="  shadow-lg rounded-2xl p-8 w-full max-w-10/12 mx-auto bg-white text-gray-600">
         
 
         <div className="space-y-4 text-center ">

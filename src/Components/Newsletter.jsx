@@ -17,9 +17,10 @@ const Newsletter = () => {
   };
 
   return (
-    <section className="  py-12 px-6">
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+    <section className="  py-12 ">
+       <h2 className="text-3xl text-center font-bold mb-4 ">Subscribe to Our Newsletter</h2>
+      <div className="max-w-10/12 mx-auto text-center bg-white p-6 rounded-2xl">
+       
         <p className="mb-6 text-gray-600">
           Stay updated with the latest events, news, and special offers from our sports club.
         </p>
@@ -34,7 +35,7 @@ const Newsletter = () => {
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full sm:w-2/3 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full sm:w-2/3 px-4 py-3  rounded-xl border-2 border-black focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
             <button
