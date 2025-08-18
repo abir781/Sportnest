@@ -24,7 +24,7 @@ const Promotions = () => {
           {promotions.map((promo, index) => (
             <div
               key={index}
-              className="bg-gradient-to-br  p-6 rounded-2xl shadow-xl transform hover:scale-105 transition duration-300"
+              className="bg-white text-gray-600  p-6 rounded-2xl shadow-xl transform hover:scale-105 transition duration-300"
             >
               <h3 className="text-xl font-semibold mb-2">Coupon Code</h3>
               <div className="text-3xl font-bold tracking-widest  px-4 py-2 inline-block rounded-md shadow-inner">
