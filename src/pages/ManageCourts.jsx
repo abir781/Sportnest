@@ -133,8 +133,8 @@ const ManageCourts = () => {
   if (isLoading) return <p className="text-center mt-8">Loading courts...</p>;
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
-      <h2 className="text-3xl font-bold mb-6 text-center">Manage Courts</h2>
+    <div className="p-4 max-w-6xl mx-auto">
+      <h2 className="text-2xl font-bold mt-2 mb-6 text-center">Manage Courts</h2>
 
       {/* Add / Update Court Form with border */}
       <div className="border border-gray-300 rounded-lg p-6 mb-8 bg-white shadow-sm">

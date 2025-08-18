@@ -29,7 +29,7 @@ const ManageBookings = () => {
       {isLoading ? (
         <p>Loading bookings...</p>
       ) : (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto ">
           <table className="table table-zebra w-full text-sm">
             <thead className="bg-blue-200 text-black">
               <tr>

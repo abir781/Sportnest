@@ -62,7 +62,7 @@ const ManageCoupon = () => {
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
-      <h2 className="text-2xl font-bold mb-4">Manage Coupons</h2>
+      <h2 className="text-2xl text-center font-bold mb-4">Manage Coupons</h2>
 
       {/* Add Form */}
       <form onSubmit={handleSubmit} className="flex gap-4 mb-6">

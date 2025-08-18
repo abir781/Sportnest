@@ -13,10 +13,10 @@ const Dashboard = () => {
 
 
   return (
-    <div className="flex min-h-screen bg-blue-900">
+    <div className="flex min-h-screen ">
       {/* Sidebar */}
       <div
-        className={`fixed lg:static z-0 top-0 left-0  text-white w-64 h-full p-5 transition-transform duration-300 ${
+        className={`fixed lg:static z-50 top-0 left-0 bg-blue-900 min-h-screen  text-white w-64 h-full p-5 transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         }`}
       >
@@ -253,7 +253,7 @@ const Dashboard = () => {
       )}
 
       {/* Main content */}
-      <div className="flex-1 bg-gray-100 min-h-screen">
+      <div className="flex-1  min-h-screen">
         {/* Topbar for small screens */}
         <div className="lg:hidden p-4 bg-white shadow flex justify-between items-center sticky top-0 z-30">
           <button onClick={() => setIsOpen(true)}>

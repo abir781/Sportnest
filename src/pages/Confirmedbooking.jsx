@@ -20,7 +20,7 @@ const ConfirmedBooking = () => {
   if (error) return <p className="text-red-500 text-center mt-6">Error loading bookings</p>;
 
   return (
-    <div className="p-4  mx-auto">
+    <div className="p-6  mx-auto">
       <h2 className="text-2xl font-bold mb-6 text-center">
         Confirmed Bookings ({bookings.length})
       </h2>

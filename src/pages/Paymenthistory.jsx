@@ -93,8 +93,8 @@ const PaymentHistory = () => {
   if (error) return <p className="text-red-500 text-center mt-6">Error fetching payment history</p>;
 
   return (
-    <div className="p-4 mx-auto">
-      <h2 className="text-3xl font-bold mb-4 text-center">Payment History ({payments.length})</h2>
+    <div className="p-6 mx-auto">
+      <h2 className="text-2xl font-bold mb-4 text-center">Payment History ({payments.length})</h2>
 
       {/* Toggle View Button */}
       <div className="flex justify-center mb-4">

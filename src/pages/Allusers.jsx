@@ -17,8 +17,8 @@ const Allusers = () => {
   if (isLoading) return <p className="text-center">Loading users...</p>;
 
   return (
-    <div className="px-4">
-      <h2 className="text-2xl font-bold mb-4 text-center">All Users</h2>
+    <div className="p-4">
+      <h2 className="text-2xl font-bold mt-2 mb-4 text-center">All Users</h2>
       <input
         type="text"
         placeholder="Search by name"
