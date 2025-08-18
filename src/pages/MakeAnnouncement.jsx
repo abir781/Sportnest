@@ -89,7 +89,7 @@ const MakeAnnouncement = () => {
           placeholder="Announcement Message"
           className="textarea textarea-bordered w-full"
         />
-        <button type="submit" className="btn btn-primary block mx-auto">
+        <button type="submit" className="btn btn-accent block mx-auto">
           {editId ? 'Update' : 'Add'} Announcement
         </button>
       </form>
@@ -100,15 +100,15 @@ const MakeAnnouncement = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {announcements.map((a) => (
-            <div key={a._id} className="card bg-base-100 shadow-md p-4">
+            <div key={a._id} className="card bg-white text-gray-600 shadow-md p-4">
               <h3 className="text-lg font-bold">{a.title}</h3>
               <p>{a.message}</p>
               <p className="text-xs text-gray-500 mt-2">
                 {new Date(a.createdAt).toLocaleString()}
               </p>
               <div className="flex justify-end gap-2 mt-3">
-                <button className="btn btn-xs btn-warning" onClick={() => handleEdit(a)}>Edit</button>
-                <button className="btn btn-xs btn-error" onClick={() => handleDelete(a._id)}>Delete</button>
+                <button className="btn btn-xs btn-accent" onClick={() => handleEdit(a)}>Edit</button>
+                <button className="btn btn-xs btn-accent" onClick={() => handleDelete(a._id)}>Delete</button>
               </div>
             </div>
           ))}

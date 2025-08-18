@@ -134,11 +134,11 @@ const ManageCourts = () => {
 
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <h2 className="text-2xl font-bold mt-2 mb-6 text-center">Manage Courts</h2>
+      <h2 className="text-2xl font-bold mt-2  mb-6 text-center">Manage Courts</h2>
 
       {/* Add / Update Court Form with border */}
       <div className="border border-gray-300 rounded-lg p-6 mb-8 bg-white shadow-sm">
-        <h3 className="text-2xl font-semibold mb-4 text-center">{editingCourtId ? 'Update Court' : 'Add New Court'}</h3>
+        <h3 className="text-2xl font-semibold mb-4 text-center text-gray-600">{editingCourtId ? 'Update Court' : 'Add New Court'}</h3>
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input
             name="courtType"
@@ -195,7 +195,7 @@ const ManageCourts = () => {
 </select>
 
 
-          <button type="submit" className="btn btn-primary col-span-1 md:col-span-2">
+          <button type="submit" className="btn btn-accent col-span-1 md:col-span-2">
             {editingCourtId ? 'Update Court' : 'Add Court'}
           </button>
         </form>
@@ -204,7 +204,7 @@ const ManageCourts = () => {
       {/* Courts List */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {courts.map((court) => (
-          <div key={court._id} className="bg-white p-4 rounded-lg shadow-md">
+          <div key={court._id} className="bg-white p-4 rounded-lg shadow-md text-gray-600">
             <img
               src={court.courtImage}
               alt={court.courtType}
@@ -220,13 +220,13 @@ const ManageCourts = () => {
             <div className="flex gap-2">
               <button
                 onClick={() => handleEdit(court)}
-                className="btn btn-warning btn-sm flex-1"
+                className="btn btn-accent btn-sm flex-1"
               >
                 Edit
               </button>
               <button
                 onClick={() => handleDelete(court._id)}
-                className="btn btn-error btn-sm flex-1"
+                className="btn btn-accent btn-sm flex-1"
               >
                 Delete
               </button>

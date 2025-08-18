@@ -86,13 +86,13 @@ const ManageCoupon = () => {
       {/* Coupon List */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {coupons.map(coupon => (
-          <div key={coupon._id} className="bg-white shadow-md p-4 rounded-lg">
+          <div key={coupon._id} className="bg-white shadow-md p-4 rounded-lg text-gray-600">
             <h3 className="text-xl font-bold text-purple-700">{coupon.code}</h3>
             <p className="text-lg">Discount: {coupon.discount}%</p>
 
             <div className="mt-4 flex gap-2">
               <button
-                className="btn btn-warning btn-sm"
+                className="btn btn-accent btn-sm"
                 onClick={() => {
                   Swal.fire({
                     title: 'Update Coupon',
@@ -116,7 +116,7 @@ const ManageCoupon = () => {
                 Edit
               </button>
               <button
-                className="btn btn-error btn-sm"
+                className="btn btn-accent btn-sm"
                 onClick={() =>
                   Swal.fire({
                     title: 'Are you sure?',

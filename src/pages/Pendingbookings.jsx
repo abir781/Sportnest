@@ -222,7 +222,7 @@ const Pendingbookings = () => {
       <h2 className="text-xl font-semibold mb-4">My Pending Bookings ({allbookings.length})</h2>
       <div className="overflow-x-auto">
         <table className="table-auto w-full border border-gray-300">
-          <thead className="bg-blue-100">
+          <thead className="bg-blue-100 text-gray-600">
             <tr>
               <th className="p-2 border">Court Type</th>
               <th className="p-2 border">Date</th>

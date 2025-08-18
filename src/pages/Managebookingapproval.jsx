@@ -174,7 +174,7 @@ const Managebookingapproval = () => {
       <h2 className="text-xl font-semibold mb-4">All Pending Bookings ({allbookings.length})</h2>
       <div className="overflow-x-auto">
         <table className="table-auto w-full border border-gray-300">
-          <thead className="bg-blue-100">
+          <thead className="bg-blue-100 text-gray-600">
             <tr>
               <th className="p-2 border">Court Type</th>
               <th className="p-2 border">Date</th>
@@ -201,13 +201,13 @@ const Managebookingapproval = () => {
                 <td className="p-2 border flex justify-center gap-2">
                   <button
                     onClick={() => handleStatusChange(booking._id, 'approved', booking.userEmail)}
-                    className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
+                    className="btn btn-accent"
                   >
                     Accept
                   </button>
                   <button
                     onClick={() => handleStatusChange(booking._id, 'rejected', booking.userEmail)}
-                    className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600"
+                    className="btn btn-accent"
                   >
                     Reject
                   </button>

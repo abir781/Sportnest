@@ -67,7 +67,7 @@ const ManageMembers = () => {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {members.map((member) => (
-            <div key={member._id} className="card bg-base-100 shadow-md p-4">
+            <div key={member._id} className="card bg-white text-gray-600 shadow-md p-4">
               <img
                 src={member.photo}
                 alt={member.name}
@@ -80,7 +80,7 @@ const ManageMembers = () => {
               </p>
               <button
                 onClick={() => handleDelete(member._id)}
-                className="btn btn-error mt-4 w-full"
+                className="btn btn-accent mt-4 w-full"
               >
                 Delete
               </button>

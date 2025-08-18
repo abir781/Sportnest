@@ -40,7 +40,7 @@ const Newsletter = () => {
             />
             <button
               type="submit"
-              className="w-full sm:w-auto bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition"
+              className="btn btn-accent  "
             >
               Subscribe
             </button>

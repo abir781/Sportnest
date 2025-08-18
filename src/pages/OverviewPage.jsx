@@ -49,16 +49,16 @@ const OverviewPage = () => {
       <h1 className="text-2xl font-bold text-center">Dashboard Overview</h1>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="p-4  rounded-2xl shadow text-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-600 ">
+        <div className="p-4  rounded-2xl shadow text-center bg-white">
           <h2 className="text-lg font-semibold">Total Users</h2>
           <p className="text-2xl font-bold">{stats.totalUsers || 0}</p>
         </div>
-        <div className="p-4 rounded-2xl shadow text-center">
+        <div className="p-4 rounded-2xl shadow text-center bg-white">
           <h2 className="text-lg font-semibold">Total Members</h2>
           <p className="text-2xl font-bold">{stats.totalMembers || 0}</p>
         </div>
-        <div className="p-4 rounded-2xl shadow text-center">
+        <div className="p-4 rounded-2xl shadow text-center bg-white">
           <h2 className="text-lg font-semibold">Total Courts</h2>
           <p className="text-2xl font-bold">{stats.totalCourts || 0}</p>
         </div>
@@ -67,8 +67,8 @@ const OverviewPage = () => {
       {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
         {/* Pie Chart */}
-        <div className=" p-4 rounded-2xl shadow">
-          <h2 className="text-lg font-semibold text-center mb-4">Distribution</h2>
+        <div className=" p-4 rounded-2xl shadow bg-white">
+          <h2 className="text-lg font-semibold text-center mb-4 text-gray-600">Distribution</h2>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie

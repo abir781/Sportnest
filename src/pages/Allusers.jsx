@@ -29,7 +29,7 @@ const Allusers = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {users.map((user) => (
-          <div key={user._id} className="card bg-base-100 shadow-xl p-4">
+          <div key={user._id} className="card bg-white text-gray-600 shadow-xl p-4">
             <img src={user.photo} alt={user.name} className="rounded-full w-24 h-24 mx-auto" />
             <div className="text-center mt-4">
               <h3 className="text-lg font-bold">{user.name}</h3>
